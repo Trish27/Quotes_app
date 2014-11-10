@@ -1,0 +1,31 @@
+<h1><%= @author.name %></h1>
+
+<p><img src="<%= @author.photo_url %>" width=30% height=30%></p>
+<p><%= @author.career_field %></p>
+
+
+
+  <form action= "/authors" method= "get">
+    <div>
+      <form action= "/authors/<%= @author.id %>/add_author>" method= "post">
+        <div>
+          <input type="hidden" name="_method" value="put">
+    <select>
+      <option value="Michael Jordan">Michael Jordan</option>
+      <option value="Ben Franklin">Ben Franklin</option>
+      <option value="Maya Angelou">May Angelou</option>
+    </select><br>
+  </div><br>
+  <br>
+    <input type = "submit" value="Add Author">
+
+
+
+
+
+<form action="/author/<%= @author.id %>" method = "post">
+  <input type= "hidden" name="_method" value="Delete">
+  <button>Delete Author</button><br>
+  <br>
+</form>
+<a href = "/authors">Back to authors</a>

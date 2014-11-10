@@ -1,0 +1,15 @@
+<form action="/tags/<%= @tag.id %>" method ="post">
+  <input type = "hidden" name = "_method" value = "put">
+
+  <label for = "name">Name<br>
+    <input type = "text" name = 'tag[name]' value =<%= @tag.name %><br>
+  </label>
+  <button>Submit</button>
+</form>
+
+<br>
+
+<form action="tags/<%= @tag.id %>" method = "post">
+  <input type = "hidden" name = "_method" value = "DELETE">
+  <button> Delete </button>
+</form>

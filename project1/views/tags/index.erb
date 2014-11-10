@@ -1,0 +1,13 @@
+
+
+<p><a href="/tags/new">Add a tag</a></p>
+
+  <% @tags.each do |tag| %>
+  <div class = 'single tag'>
+    <a href="/tags/<%= tag.id %>">
+  <h2><%= tag.id %> | <%= tag.name %></h2>
+  </a>
+
+  </div>
+
+  <% end %>
