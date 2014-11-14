@@ -4,10 +4,21 @@
 
   <% @tags.each do |tag| %>
   <div class = 'single tag'>
-    <a href="/tags/<%= tag.id %>">
-  <h2><%= tag.id %> | <%= tag.name %></h2>
-  </a>
+    <a href="/tags/<%= tag.id %>"><%= tag.name %></a>
+    <form action="/tags/<%= tag.id %>"method="post">
+      <input type = "hidden" name="_method" value="delete">
+      <input type = "hidden" name=" " value= "<%= tag.id %>">
+      <input type = "submit" value="delete tag">
+    </form></br>
+    <% end %>
+     <form action = "/tags" method= "post">
+       <label for = "name">add a new tag<br>
+         <input type = "text" ma,e = "tag[name]" value="">
+       </label><br>
 
-  </div>
+     </div>
 
-  <% end %>
+
+     <a href = "/quotes">quotes</a><br>
+     <br>
+     <a href = "/authors" >authors</a><br>

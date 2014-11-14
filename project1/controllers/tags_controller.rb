@@ -33,11 +33,6 @@ post '/tags' do
 end
 
 
-#Edit
-get '/tags/:id/edit' do
-  @tags = Tag.find(params[:id])
-  erb :'tags/edit'
-end
 
 # Put
 put '/tags/:id' do

@@ -15,6 +15,7 @@ create table authors (
 create table quotes (
   id serial primary key,
   description text,
+  name varchar,
   authors_id integer references authors
 );
 

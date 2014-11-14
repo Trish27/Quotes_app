@@ -10,17 +10,34 @@ get '/quotes' do
 end
 
 get '/quotes/new' do
+  @authors = Author.all
+  @tags = Tag.all
   erb :'quotes/new'
 end
 
 get '/quotes/:id' do
   @quote = Quote.find(params[:id])
-  @tags = Tag.all
+#  @tags = Tag.all
   erb :'quotes/show'
+end
+
+post "/quotes" do
+  quotes = Quote.new(params[:quote])
+  if params[:tags] == nil
+    quote.save
+  else
+    params[:tag].each do |tag_id|
+      tag = Tag.find(tag_id)
+      quote.tags.push(tag)
+      quote.save
+    end
+  end
+  redirect("/quotes")
 end
 
 get '/quotes/:id edit' do
   @quote = Quote.find(params[:id])
+  @authors = Author.all
   @tags = Tag.all
   erb :'quotes/edit'
 end
@@ -51,6 +68,6 @@ end
    if quote.destroy
      redirect '/quotes'
    else
-     redirect "/playlists/#{quote.id}"
+     redirect "/tags/#{quote.id}"
    end
- end 
+ end

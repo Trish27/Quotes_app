@@ -1,7 +1,8 @@
 <p><a href="/quotes/new">Add a Quote?</a></p>
 <% @quotes.each do |quote| %>
   <div class = "single quote" >
-    <h2><%= quote.id %> | <%= quote.description %></h2>
+    <h2><%= quote.description %> | <%= quote.name %></h2>
+
     <a href = "/quotes/<%= quote.id %>"</a>
   </div>
       <% end %>

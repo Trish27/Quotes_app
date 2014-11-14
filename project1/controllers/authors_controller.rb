@@ -36,12 +36,17 @@ end
 # Edit
 get '/authors/:id/edit' do
   @author = Author.find(params[:id])
-  if author.update(params[:author])
-    redirect("/author/#{author.id}")
-  else
-    redirect("/author/#{author.id}/edit")
-  end
+  erb :"authors/edit"
 end
+
+get '/authors/:id' do
+  @author = author.find(params[:id])
+  if author.update(params[:author])
+    redirect ("/authors/#{author.id}")
+  else
+    redirect("author/#{author.id}/edit")
+  end
+
 
 #Delete
 delete '/author/:id' do
@@ -49,6 +54,7 @@ delete '/author/:id' do
   if author.destroy
     redirect('/author')
   else
-    redirect("/authors/#{author.id}")
+    redirect("/authors/#{author.id}/edit")
   end
+end
 end
